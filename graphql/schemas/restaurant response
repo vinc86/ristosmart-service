@@ -1,0 +1,73 @@
+restaurant response
+
+restaurant
+
+{
+    _id: "0012",
+    restaurantName: "partenope #081",
+    restaurantCategory: ["pizzeria","ristorante"],
+    cookingStyle:["Italiana"],
+    contacts: {
+        email: "email@partenope.it",
+        phone: +49030123456
+    }
+    socialMedia: {
+        facebook: "",
+        instagram: "https://www.instagram.com/partenope__081/"
+    }
+    ownerId: "ert4321"
+}
+
+{
+    _id: "0013",
+    restaurantName: "partenope bar",
+    restaurantCategory: ["caffetteria"],
+    cookingStyle:["Italiana"],
+    contacts: {
+        email: "email@partenopebar.it",
+        phone: +49030123789
+    }
+    socialMedia: {
+        facebook: "",
+        instagram: "https://www.instagram.com/partenope__081/"
+    }
+    ownerId: "ert4321"
+}
+
+owner
+
+{
+    _id: "ert4321",
+    firstName:"Maria",
+    lastName:"Rossi",
+    role: "owner",
+    phone:"+4915123456",
+    email: "maria.rossi@gmail.com",
+    restaurantId: ["0012","0013"]
+}
+
+
+admin
+
+{
+    _id: "ert4323",
+    firstName:"Gigi",
+    lastName:"Gialli",
+    role: "admin"
+    phone: "+4915123456",
+    email: "gigi.gialli@gmail.com",
+    employedAt: "0012"
+}
+
+employee
+
+{
+    _id: "ert4321",
+    firstName:"Pippo",
+    lastName:"Franco",
+    role: "employee",
+    phone:"+4915124567",
+    email: "pippo.franco@gmail.com",
+    employedAt: "0012"
+}
+
