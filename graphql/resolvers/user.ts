@@ -50,11 +50,7 @@ export default {
     }, */
   },
   Mutation: {
-    async register(
-      _: void,
-      args: RegisterInput,
-      ctx: { token: string }
-    ): Promise<User> {
+    async register(_: void, args: RegisterInput): Promise<User> {
       //const admin = await isAdmin(ctx.token);
       const input = JSON.parse(JSON.stringify(args)).input;
       console.log(input);
@@ -94,6 +90,7 @@ export default {
         firstName,
         lastName,
         role,
+        loggedIn,
         email: userEmail,
         restaurantId,
         password,

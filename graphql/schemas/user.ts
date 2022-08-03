@@ -5,6 +5,7 @@ export default gql`
     OWNER
     ADMIN
     EMPLOYEE
+    DEV
   }
 
   type User {

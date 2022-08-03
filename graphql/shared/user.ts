@@ -2,6 +2,7 @@ export enum ROLE {
   OWNER = "OWNER",
   ADMIN = "ADMIN",
   EMPLOYEE = "EMPLOYEE",
+  DEV = "DEV",
 }
 
 export interface RegisterInput {
@@ -20,6 +21,7 @@ export type User = {
   email?: string;
   phone?: string;
   role: ROLE;
+  loggedIn: boolean;
   createdAt?: string;
   updatedAt?: string;
 };

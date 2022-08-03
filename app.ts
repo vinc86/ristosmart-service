@@ -14,6 +14,9 @@ app.use(cors());
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req }) => {
+    return req.headers;
+  },
 });
 
 connectApp(server);

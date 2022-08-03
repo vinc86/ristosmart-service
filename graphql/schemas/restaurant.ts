@@ -21,6 +21,21 @@ export default gql`
     socialMedia: SocialMedia
   }
 
+  type MenuSelection {
+    _id: ID
+    dishName: String!
+    description: String
+    price: Float!
+  }
+  type MenuSection {
+    _id: ID
+    category: String!
+    dishSelections: [MenuSelection]
+  }
+  type Menu {
+    _id: ID!
+    sections: [MenuSection]
+  }
   type User {
     _id: ID
     email: String
@@ -44,13 +59,22 @@ export default gql`
     socialMedia: SocialMediaInput
   }
 
+  input AddMenuInput {
+    restaurantId: ID!
+    category: String!
+    dishName: String!
+    description: String
+    price: Int!
+  }
   type Query {
     getRestaurant(id: String!): Restaurant!
     restaurants(ownerId: String!): [Restaurant]!
+    getMenu(restaurantId: String!): Menu!
   }
 
   type Mutation {
     registerRestaurant(input: registerRestaurantInput): Restaurant!
+    addMenu(input: AddMenuInput!): Menu!
     #registerOwner(input: registerInput): User!
   }
 `;

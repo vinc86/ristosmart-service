@@ -1,8 +1,9 @@
 import { ApolloServer } from "apollo-server";
 import mongoose from "mongoose";
 
-const URI =
+const devDbUri =
   "mongodb+srv://vincenzo:test@cluster0.uostm.mongodb.net/restaurant-app?retryWrites=true&w=majority";
+const URI = process.env.MONGO_URI || devDbUri;
 
 export default async (server: ApolloServer) => {
   const { connection } = await mongoose.connect(URI);

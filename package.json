@@ -3,32 +3,36 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "v16.15.1"
+  },
+  "private": true,
   "scripts": {
     "dev": "nodemon app.ts",
-    "client": "cd ../client && yarn start",
+    "client": "cd ../restaurant-app-client && yarn start",
     "start": "concurrently 'yarn dev' 'yarn client' "
   },
   "dependencies": {
     "@types/express": "^4.17.13",
     "@types/nodemailer": "^6.4.4",
-    "apollo-server": "^3.5.0",
+    "apollo-server": "^3.10.0",
     "bcryptjs": "^2.4.3",
-    "concurrently": "^7.0.0",
+    "concurrently": "^7.2.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.1",
-    "graphql": "^16.1.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0",
     "graphql-phone-type": "^0.0.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.0",
-    "nodemailer": "^6.7.2",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.2"
+    "mongoose": "^6.4.4",
+    "nodemailer": "^6.7.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/dotenv": "^8.2.0",
-    "@types/jsonwebtoken": "^8.5.6",
-    "nodemon": "^2.0.15"
+    "@types/jsonwebtoken": "^8.5.8",
+    "nodemon": "^2.0.19"
   }
 }

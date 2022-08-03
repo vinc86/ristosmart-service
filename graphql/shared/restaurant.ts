@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { ObjectId } from "mongoose";
 
 type RestaurantContacts = {
   email: string;
@@ -11,10 +11,25 @@ type SocialMedia = {
   twitter: string;
 };
 export type Restaurant = {
-  _id: string;
-  ownerId: mongoose.Types.ObjectId;
-  restaurantName: string;
-  menus: String[];
-  contacts: RestaurantContacts;
-  socialMedia: SocialMedia;
+  _id?: string;
+  ownerId?: mongoose.Types.ObjectId;
+  restaurantName?: string;
+  menus?: string[];
+  contacts?: RestaurantContacts;
+  socialMedia?: SocialMedia;
+};
+
+type DishSelection = {
+  dishName: string;
+  description?: string;
+  price: number;
+};
+type Section = {
+  category: string;
+  dishes: DishSelection[];
+};
+export type Menu = {
+  _id?: string;
+  restaurantId?: ObjectId;
+  sections?: Section[];
 };

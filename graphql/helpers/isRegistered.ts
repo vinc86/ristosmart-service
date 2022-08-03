@@ -1,6 +1,6 @@
 import { ApolloError } from "apollo-server-errors";
 import { Model } from "mongoose";
-import { User } from "../../shared/user";
+import { User } from "../shared/user";
 
 export const isRegistered = async (
   name: String,

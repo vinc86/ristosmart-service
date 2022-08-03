@@ -71,3 +71,25 @@ employee
     employedAt: "0012"
 }
 
+menu response
+
+
+menu: {
+  _id: "",
+  sections: [
+  {
+    _id: "", ??
+    category: "",
+    selection: [
+        ....
+        {
+            _id: "", ??
+            dishName: "",
+            description: "",
+            price: 3.5,
+        },
+        ....
+        ]
+    }
+]
+}

@@ -1,6 +1,9 @@
-import { Restaurant } from "../shared/restaurant";
+import { Restaurant, Menu } from "../shared/restaurant";
 import RestaurantModel from "../../models/Restaurant";
 import UserModel from "../../models/User";
+import MenuModel from "../../models/Menu/Menu";
+import { ApolloError } from "apollo-server";
+
 export default {
   queries: {
     async restaurants(_: void, { ownerId }: { ownerId: string }) {
@@ -40,6 +43,21 @@ export default {
         },
       ]; */
     },
+    async getRestaurant(_: void, { id }: { id: string }): Promise<Restaurant> {
+      return { menus: [""] };
+    },
+    async getMenu(
+      _: void,
+      { restaurantId }: { restaurantId: string }
+    ): Promise<Menu> {
+      const id = JSON.parse(JSON.stringify(restaurantId));
+      const menu = await MenuModel.findOne({ restaurantId: id });
+      if (!menu) {
+        throw new ApolloError("Could not get menu");
+      }
+      console.log("menu", menu);
+      return menu;
+    },
   },
 
   mutations: {
@@ -56,6 +74,25 @@ export default {
 
       console.log(restaurant);
       return restaurant;
+    },
+    async addMenu(_: void, args: any): Promise<Menu> {
+      const { restaurantId, category, description, dishName, price } =
+        args.input;
+
+      const RestaurantMenu = new MenuModel({
+        restaurantId,
+        sections: [
+          { category, dishSelections: [{ dishName, description, price }] },
+        ],
+      }).save();
+
+      await RestaurantModel.findByIdAndUpdate(restaurantId, {
+        $push: {
+          menus: (await RestaurantMenu)._id,
+        },
+      });
+
+      return RestaurantMenu;
     },
   },
 };
